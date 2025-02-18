@@ -1,0 +1,37 @@
+<div class="flex justify-between items-center max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" style="background-color: #173152;"> 
+    <div class="flex mr-2 items-center">
+        <!-- Logo -->
+        <a routerLink="/home" style="margin-right: 10px">
+            <img src="/assets/images/setting-logo-1-M13oPLiYoM.png" alt="Logo" class="w-16 h-16">
+        </a>
+        <!-- Navigation Links -->
+        <a routerLink="/home" class="font-semibold text-white hover:text-white dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 flex flex-col">
+            <span class="text-lg">Direction Pension Civile</span>
+            <span class="text-sm">République d'Haïti</span>
+        </a>        
+    </div>
+    <!-- Other links and icons -->
+    <div class="flex items-center space-x-4">
+        <a routerLink="/liens-utiles" class="text-white hover:text-orange-500 cursor-pointer">Liens Utiles</a>
+        <a routerLink="/recrutement" class="text-white hover:text-orange-500 cursor-pointer">Recrutement</a>
+        <a routerLink="/contact" class="text-white hover:text-orange-500 cursor-pointer">Contact</a>        
+        <!-- Search Icon / Close Icon -->
+        <a href="#" class="text-white hover:text-gray-200 ml-4" (click)="toggleSearch()">
+            @if (!isSearchOpen) {            
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+           }@else{    
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+           }
+        </a>
+        <!-- Hamburger Menu -->
+        <a href="#" class="text-white hover:text-gray-200 ml-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </a>
+    </div>
+</div>
