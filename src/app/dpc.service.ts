@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService {
+export class DPCService {
   private isSearchOpen = new BehaviorSubject<boolean>(false);
   private rightPanelOpen = new BehaviorSubject<boolean>(false);
 

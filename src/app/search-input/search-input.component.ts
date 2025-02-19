@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SearchService } from '../search.service';
+import { DPCService } from '../dpc.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,10 +13,10 @@ export class SearchInputComponent implements OnInit, OnDestroy{
   isOpen:boolean = false;
   isOpenSubscription: Subscription | undefined;
 
-  constructor(private searchService : SearchService){}
+  constructor(private dpcService : DPCService){}
 
   ngOnInit(): void {
-    this.isOpenSubscription = this.searchService.getIsSearchInputOpen()
+    this.isOpenSubscription = this.dpcService.getIsSearchInputOpen()
     .subscribe(
       (open) => { this.isOpen = open }
     );

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SearchService } from '../search.service';
+import { DPCService } from '../dpc.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,15 +15,15 @@ export class NavbarComponent implements OnInit, OnDestroy{
     isOpenSubscription: Subscription | undefined;
     rightPanelOpenSubscription : Subscription | undefined;
   
-    constructor(private searchService : SearchService){}
+    constructor(private dpcService : DPCService){}
   
     ngOnInit(): void {
-      this.isOpenSubscription = this.searchService.getIsSearchInputOpen()
+      this.isOpenSubscription = this.dpcService.getIsSearchInputOpen()
       .subscribe(
         (open:boolean) => { this.isSearchOpen = open;}
       );
 
-      this.rightPanelOpenSubscription = this.searchService.getRightPanelOpen()
+      this.rightPanelOpenSubscription = this.dpcService.getRightPanelOpen()
       .subscribe(
         (open:boolean) => { this.rightPanelOpen = open;}
       );
@@ -40,11 +40,11 @@ export class NavbarComponent implements OnInit, OnDestroy{
     }
 
     toggleSearch(){
-      this.searchService.toggleSearch();
+      this.dpcService.toggleSearch();
     }
 
     toggleHamburgerMenu(){
-      this.searchService.toggleRightPanel();
+      this.dpcService.toggleRightPanel();
     }
 
     closeRightPanel(){
