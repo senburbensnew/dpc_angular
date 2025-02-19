@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { CarouselComponent } from '../carousel/carousel.component';
-import { FooterComponent } from "../footer/footer.component";
+import { PresentationComponent } from '../presentation/presentation.component';
+import { NouveautesComponent } from '../nouveautes/nouveautes.component';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, CarouselComponent, FooterComponent],
+  imports: [PresentationComponent, NouveautesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
