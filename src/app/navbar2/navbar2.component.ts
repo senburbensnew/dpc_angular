@@ -3,13 +3,13 @@ import { Subscription } from 'rxjs';
 import { DPCService } from '../dpc.service';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-navbar2',
   standalone: true,
   imports: [],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  templateUrl: './navbar2.component.html',
+  styleUrl: './navbar2.component.scss'
 })
-export class NavbarComponent implements OnInit, OnDestroy{
+export class Navbar2Component implements OnInit, OnDestroy{
     isSearchOpen:boolean = false;
     rightPanelOpen:boolean = false;
     isOpenSubscription: Subscription | undefined;
@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
       this.rightPanelOpenSubscription = this.dpcService.getRightPanelOpen()
       .subscribe(
-        (open:boolean) => { this.rightPanelOpen = open; }
+        (open:boolean) => { this.rightPanelOpen = open;}
       );
     }
   
@@ -49,21 +49,6 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
     closeRightPanel(){
       this.toggleHamburgerMenu();
-    }
-
-/*   // Close panel when clicking outside
-  @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (!target.closest('.fixed') && this.rightPanelOpen) {
-      this.closeRightPanel();
-    }
-  } */
-
-    // Close panel on ESC key press
-    @HostListener('document:keydown.escape', ['$event'])
-    onKeydownHandler() {
-      if(this.rightPanelOpen) this.closeRightPanel();
     }
 }
 
