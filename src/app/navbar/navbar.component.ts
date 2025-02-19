@@ -11,14 +11,21 @@ import { SearchService } from '../search.service';
 })
 export class NavbarComponent implements OnInit, OnDestroy{
     isSearchOpen:boolean = false;
+    rightPanelOpen:boolean = false;
     isOpenSubscription: Subscription | undefined;
+    rightPanelOpenSubscription : Subscription | undefined;
   
     constructor(private searchService : SearchService){}
   
     ngOnInit(): void {
       this.isOpenSubscription = this.searchService.getIsSearchInputOpen()
       .subscribe(
-        (open) => { this.isSearchOpen = open;}
+        (open:boolean) => { this.isSearchOpen = open;}
+      );
+
+      this.rightPanelOpenSubscription = this.searchService.getRightPanelOpen()
+      .subscribe(
+        (open:boolean) => { this.rightPanelOpen = open;}
       );
     }
   
@@ -26,9 +33,21 @@ export class NavbarComponent implements OnInit, OnDestroy{
       if(this.isOpenSubscription){
         this.isOpenSubscription.unsubscribe();
       }
+
+      if(this.rightPanelOpenSubscription){
+        this.rightPanelOpenSubscription.unsubscribe();
+      }
     }
 
     toggleSearch(){
       this.searchService.toggleSearch();
+    }
+
+    toggleHamburgerMenu(){
+      this.searchService.toggleRightPanel();
+    }
+
+    closeRightPanel(){
+      this.toggleHamburgerMenu();
     }
 }

@@ -28,10 +28,39 @@
            }
         </a>
         <!-- Hamburger Menu -->
-        <a href="#" class="text-white hover:text-gray-200 ml-4">
+        <a href="#" class="text-white hover:text-gray-200 ml-4" (click)="toggleHamburgerMenu()">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </a>
     </div>
 </div>
+@if (rightPanelOpen) {
+    <div class="fixed top-0 right-0 w-80 h-screen bg-white shadow-lg p-6 max-w-md z-50">
+        <button (click)="closeRightPanel()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+        <div class="flex items-center space-x-4">
+            <img src="/assets/images/setting-logo-1-M13oPLiYoM.png" alt="Logo MEF" class="w-16 h-16">
+            <div>
+                <h2 class="text-sm font-bold text-gray-800">MINISTÈRE DE L'ÉCONOMIE ET DES FINANCES</h2>
+                <p class="text-gray-600 text-sm">République d’Haïti</p>
+            </div>
+        </div>
+        <p class="text-gray-700 text-sm mt-4">
+            Créé par le décret du 13 mars 1987, le Ministère de l'Économie et des Finances a pour mission fondamentale de formuler et de conduire la politique économique, financière et monétaire de l'État haïtien pour favoriser la croissance ainsi que le développement socio-économique du pays sur une base durable.
+        </p>
+        <div class="mt-4 space-y-2">
+            <div class="flex items-center space-x-2 text-gray-700">
+                <span class="text-blue-600">📞</span>
+                <span>+ (509) 2992 1067 / 2992 1028</span>
+            </div>
+            <div class="flex items-center space-x-2 text-gray-700">
+                <span class="text-blue-600">✉️</span>
+                <a href="mailto:info@mef.gouv.ht" class="text-blue-500">{{ "info@mef.gouv.ht" }}</a>
+            </div>
+            <div class="flex items-center space-x-2 text-gray-700">
+                <span class="text-blue-600">📍</span>
+                <span>5, Ave. Charles Summer, Port-au-Prince, Haïti</span>
+            </div>
+        </div>
+    </div>
+}

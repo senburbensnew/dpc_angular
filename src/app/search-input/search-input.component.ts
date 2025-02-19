@@ -27,4 +27,6 @@ export class SearchInputComponent implements OnInit, OnDestroy{
       this.isOpenSubscription.unsubscribe();
     }
   }
+
+  search(){}
 }
