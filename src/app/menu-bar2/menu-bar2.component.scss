@@ -1,0 +1,63 @@
+/* Scrollbar Styling */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Mobile Menu Height */
+@media (max-width: 639px) {
+    .max-h-\[calc\(100vh-4rem\)\] {
+        max-height: calc(100vh - 4rem);
+    }
+}
+
+/* Dropdown Transitions */
+.group:hover ul {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[class*='group'] ul {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Mobile Menu Animation */
+.sm\:hidden {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 639px) {
+    html {
+        overflow-x: hidden;
+    }
+    body {
+        overflow-x: hidden;
+    }
+}
