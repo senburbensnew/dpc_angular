@@ -15,17 +15,18 @@
   <!-- Navigation and Icons -->
   <div class="flex items-center space-x-4">
       <!-- Main Navigation Links -->
-      <div class="flex space-x-2 md:space-x-4">
-          <a routerLink="/liens-utiles" class="text-white hover:text-orange-500 cursor-pointer text-sm md:text-base">
-              Liens Utiles
-          </a>
-          <a routerLink="/recrutement" class="text-white hover:text-orange-500 cursor-pointer text-sm md:text-base">
-              Recrutement
-          </a>
-          <a routerLink="/contact" class="text-white hover:text-orange-500 cursor-pointer text-sm md:text-base">
-              Contact
-          </a>
+      <div class="hidden md:flex space-x-2 md:space-x-4">
+        <a routerLink="/liens-utiles" class="text-white hover:text-orange-500 cursor-pointer text-sm md:text-base">
+            Liens Utiles
+        </a>
+        <a routerLink="/recrutement" class="text-white hover:text-orange-500 cursor-pointer text-sm md:text-base">
+            Recrutement
+        </a>
+        <a routerLink="/contact" class="text-white hover:text-orange-500 cursor-pointer text-sm md:text-base">
+            Contact
+        </a>
       </div>
+      
 
       <!-- Search Icon -->
       <a href="#" class="text-white hover:text-gray-200 ml-2" (click)="toggleSearch()">
