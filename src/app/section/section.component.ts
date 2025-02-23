@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { ArticleComponent } from "../article/article.component";
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-section',
   standalone: true,
-  imports: [ArticleComponent],
+  imports: [UpperCasePipe],
   templateUrl: './section.component.html',
   styleUrl: './section.component.scss'
 })

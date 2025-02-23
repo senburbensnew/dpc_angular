@@ -1,210 +1,261 @@
-<nav class="bg-white shadow-sm border-b">
+<nav class="bg-white shadow-sm border-b relative">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Desktop Menu Container -->
         <div class="flex justify-between h-16">
-            <!-- Mobile menu button -->
+            <!-- Mobile Menu Button -->
             <div class="flex items-center sm:hidden">
                 <button type="button"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-                    aria-expanded="false" id="mobile-menu-button">
+                    (click)="toggleMobileMenu()"
+                    aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
-                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
+                    <svg class="h-6 w-6" [class.hidden]="mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg class="h-6 w-6" [class.hidden]="!mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
-            <!-- Desktop Menu -->
+
+            <!-- Desktop Menu Items -->
             <div class="hidden sm:flex sm:items-center w-full">
                 <ul class="flex space-x-4 items-center w-full justify-center" role="menubar">
-                    <!-- Accueil -->
+                    <!-- Home -->
                     <li class="relative h-full flex items-center" role="none">
                         <a href="#"
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 text-xs font-medium transition-colors duration-200 flex items-center h-full"
                             role="menuitem">ACCUEIL</a>
                     </li>
-                    <!-- Le Ministère -->
+
+                    <!-- Direction Dropdown -->
                     <li class="relative group h-full flex items-center" role="none">
                         <button
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 text-xs font-medium flex items-center gap-1 transition-colors duration-200 h-full"
-                            aria-haspopup="true" aria-expanded="false">
-                            LE MINISTERE
+                            aria-haspopup="true">
+                            LA DIRECTION
                             <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <ul
-                            class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-1 w-48 py-1 border border-gray-100 z-50
-                            transition-opacity duration-200">
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Historique</a>
-                            </li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Mission
-                                    et Attributions</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Structure
-                                    Organique</a>
-                            </li>
-                        </ul>
+                        <div class="absolute top-full left-0 hidden group-hover:block w-48 z-50">
+                            <ul class="bg-white shadow-lg rounded-md mt-1 py-1 border border-gray-100">
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Historique</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Mission et Attributions</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Structure Organique</a></li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <!-- Lois de Finances et Budget -->
+                    <!-- Budget Laws Dropdown -->
                     <li class="relative group h-full flex items-center" role="none">
                         <button
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 text-xs font-medium flex items-center gap-1 transition-colors duration-200 h-full">
                             LOIS DE FINANCES ET BUDGET
                             <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <ul
-                            class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-1 w-48 py-1 border border-gray-100 z-50
-                            transition-opacity duration-200">
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Budget
-                                    de la République</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Lettre
-                                    de Cadrage</a></li>
-                        </ul>
+                        <div class="absolute top-full left-0 hidden group-hover:block w-48 z-50">
+                            <ul class="bg-white shadow-lg rounded-md mt-1 py-1 border border-gray-100">
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Budget de la République</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Lettre de Cadrage</a></li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <!-- Execution du Budget -->
+                    <!-- Budget Execution Dropdown -->
                     <li class="relative group h-full flex items-center" role="none">
                         <button
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 text-xs font-medium flex items-center gap-1 transition-colors duration-200 h-full">
                             EXECUTION DU BUDGET
                             <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <ul
-                            class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-1 w-48 py-1 border border-gray-100 z-50
-                            transition-opacity duration-200">
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Rapports
-                                    Mensuels</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Suivi
-                                    des Dépenses</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Audits
-                                    Financiers</a></li>
-                        </ul>
+                        <div class="absolute top-full left-0 hidden group-hover:block w-48 z-50">
+                            <ul class="bg-white shadow-lg rounded-md mt-1 py-1 border border-gray-100">
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Rapports Mensuels</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Suivi des Dépenses</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Audits Financiers</a></li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <!-- Indicateurs Socio Economiques -->
+                    <!-- Economic Indicators Dropdown -->
                     <li class="relative group h-full flex items-center" role="none">
                         <button
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 text-xs font-medium flex items-center gap-1 transition-colors duration-200 h-full">
                             INDICATEURS SOCIO ECONOMIQUES
                             <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <ul
-                            class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-1 w-48 py-1 border border-gray-100 z-50
-                            transition-opacity duration-200">
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Statistiques
-                                    Nationales</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Analyses
-                                    Sectorielles</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Rapports
-                                    Annuels</a></li>
-                        </ul>
+                        <div class="absolute top-full left-0 hidden group-hover:block w-48 z-50">
+                            <ul class="bg-white shadow-lg rounded-md mt-1 py-1 border border-gray-100">
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Statistiques Nationales</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Analyses Sectorielles</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Rapports Annuels</a></li>
+                            </ul>
+                        </div>
                     </li>
 
-                    <!-- Documentation -->
+                    <!-- Documentation Dropdown -->
                     <li class="relative group h-full flex items-center" role="none">
                         <button
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 text-xs font-medium flex items-center gap-1 transition-colors duration-200 h-full">
                             DOCUMENTATION
                             <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <ul
-                            class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-1 w-48 py-1 border border-gray-100 z-50
-                            transition-opacity duration-200">
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Guides
-                                    Pratiques</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Publications
-                                    Officielles</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Archives</a>
-                            </li>
-                        </ul>
+                        <div class="absolute top-full left-0 hidden group-hover:block w-48 z-50">
+                            <ul class="bg-white shadow-lg rounded-md mt-1 py-1 border border-gray-100">
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Guides Pratiques</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Publications Officielles</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Archives</a></li>
+                            </ul>
+                        </div>
                     </li>
-                    <!-- Portails -->
+
+                    <!-- Portals Dropdown -->
                     <li class="relative group h-full flex items-center" role="none">
                         <button
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 text-xs font-medium flex items-center gap-1 transition-colors duration-200 h-full">
                             PORTAILS
                             <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <ul
-                            class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-1 w-48 py-1 border border-gray-100 z-50
-                            transition-opacity duration-200">
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Portail
-                                    Fiscal</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Portail
-                                    Statistique</a></li>
-                            <li><a href="#"
-                                    class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">E-Services</a>
-                            </li>
-                        </ul>
+                        <div class="absolute top-full left-0 hidden group-hover:block w-48 z-50">
+                            <ul class="bg-white shadow-lg rounded-md mt-1 py-1 border border-gray-100">
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Portail Fiscal</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">Portail Statistique</a></li>
+                                <li><a href="#" class="block px-4 py-2.5 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600">E-Services</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div class="hidden sm:hidden" id="mobile-menu">
-            <div class="pt-2 pb-3 space-y-1">
-                <a href="#"
-                    class="block pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">ACCUEIL</a>
 
-                <!-- Mobile Dropdowns -->
-                <div class="space-y-1">
-                    <!-- Le Ministère Mobile -->
-                    <button
+        <!-- Mobile Menu -->
+        <div class="sm:hidden absolute w-full bg-white left-0 shadow-lg" [class.hidden]="!mobileMenuOpen">
+            <div class="pt-2 pb-3 space-y-1 max-h-[60vh] overflow-y-auto">
+                <!-- Home -->
+                <a href="#" class="block pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">ACCUEIL</a>
+
+                <!-- Direction Mobile Dropdown -->
+                <div class="space-y-1 border-t">
+                    <button (click)="toggleDropdown('ministere')"
                         class="w-full flex justify-between items-center pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
-                        LE MINISTERE
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7" />
+                        LA DIRECTION
+                        <svg class="w-5 h-5 transform transition-transform" 
+                            [class.rotate-180]="activeDropdown === 'ministere'"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div class="pl-4 space-y-1">
-                        <a href="#"
-                            class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Historique</a>
-                        <a href="#"
-                            class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Missions</a>
-                        <a href="#"
-                            class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Structure</a>
+                    <div class="pl-4 space-y-1 bg-gray-50" [class.hidden]="activeDropdown !== 'ministere'">
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Historique</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Missions</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Structure</a>
                     </div>
-                    <!-- Other mobile dropdown sections with similar adjustments -->
+                </div>
+
+                <!-- Budget Laws Mobile Dropdown -->
+                <div class="space-y-1 border-t">
+                    <button (click)="toggleDropdown('lois')"
+                        class="w-full flex justify-between items-center pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
+                        LOIS DE FINANCES ET BUDGET
+                        <svg class="w-5 h-5 transform transition-transform" 
+                            [class.rotate-180]="activeDropdown === 'lois'"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pl-4 space-y-1 bg-gray-50" [class.hidden]="activeDropdown !== 'lois'">
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Budget de la République</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Lettre de Cadrage</a>
+                    </div>
+                </div>
+
+                <!-- Budget Execution Mobile Dropdown -->
+                <div class="space-y-1 border-t">
+                    <button (click)="toggleDropdown('execution')"
+                        class="w-full flex justify-between items-center pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
+                        EXECUTION DU BUDGET
+                        <svg class="w-5 h-5 transform transition-transform" 
+                            [class.rotate-180]="activeDropdown === 'execution'"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pl-4 space-y-1 bg-gray-50" [class.hidden]="activeDropdown !== 'execution'">
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Rapports Mensuels</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Suivi des Dépenses</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Audits Financiers</a>
+                    </div>
+                </div>
+
+                <!-- Economic Indicators Mobile Dropdown -->
+                <div class="space-y-1 border-t">
+                    <button (click)="toggleDropdown('indicateurs')"
+                        class="w-full flex justify-between items-center pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
+                        INDICATEURS SOCIO ECONOMIQUES
+                        <svg class="w-5 h-5 transform transition-transform" 
+                            [class.rotate-180]="activeDropdown === 'indicateurs'"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pl-4 space-y-1 bg-gray-50" [class.hidden]="activeDropdown !== 'indicateurs'">
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Statistiques Nationales</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Analyses Sectorielles</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Rapports Annuels</a>
+                    </div>
+                </div>
+
+                <!-- Documentation Mobile Dropdown -->
+                <div class="space-y-1 border-t">
+                    <button (click)="toggleDropdown('documentation')"
+                        class="w-full flex justify-between items-center pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
+                        DOCUMENTATION
+                        <svg class="w-5 h-5 transform transition-transform" 
+                            [class.rotate-180]="activeDropdown === 'documentation'"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pl-4 space-y-1 bg-gray-50" [class.hidden]="activeDropdown !== 'documentation'">
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Guides Pratiques</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Publications Officielles</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Archives</a>
+                    </div>
+                </div>
+
+                <!-- Portals Mobile Dropdown -->
+                <div class="space-y-1 border-t">
+                    <button (click)="toggleDropdown('portails')"
+                        class="w-full flex justify-between items-center pl-3 pr-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
+                        PORTAILS
+                        <svg class="w-5 h-5 transform transition-transform" 
+                            [class.rotate-180]="activeDropdown === 'portails'"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="pl-4 space-y-1 bg-gray-50" [class.hidden]="activeDropdown !== 'portails'">
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Portail Fiscal</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">Portail Statistique</a>
+                        <a href="#" class="block pl-3 pr-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50">E-Services</a>
+                    </div>
                 </div>
             </div>
         </div>
