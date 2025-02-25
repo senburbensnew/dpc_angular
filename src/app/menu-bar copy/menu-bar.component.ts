@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-menu-bar2',
+  selector: 'app-menu-bar',
   standalone: true,
   imports: [],
-  templateUrl: './menu-bar2.component.html',
-  styleUrl: './menu-bar2.component.scss'
+  templateUrl: './menu-bar.component.html',
+  styleUrl: './menu-bar.component.scss'
 })
-export class MenuBar2Component {
+export class MenuBarComponent {
   mobileMenuOpen = false;
   activeDropdown: string | null = null;
 

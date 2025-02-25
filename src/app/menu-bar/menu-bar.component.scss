@@ -1,0 +1,35 @@
+/* Add this to your component's CSS file */
+
+.scrollbar-hide {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Smooth scrolling */
+  .overflow-x-auto {
+    scroll-behavior: smooth;
+  }
+  
+  /* Add shadow to indicate more content */
+  .overflow-x-auto::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.8));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .overflow-x-auto.has-more-content::after {
+    opacity: 1;
+  }
+  

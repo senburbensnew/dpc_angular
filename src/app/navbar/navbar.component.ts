@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
       this.rightPanelOpenSubscription = this.dpcService.getRightPanelOpen()
       .subscribe(
-        (open:boolean) => { this.rightPanelOpen = open; }
+        (open:boolean) => { this.rightPanelOpen = open;}
       );
     }
   
@@ -49,21 +49,6 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
     closeRightPanel(){
       this.toggleHamburgerMenu();
-    }
-
-/*   // Close panel when clicking outside
-  @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (!target.closest('.fixed') && this.rightPanelOpen) {
-      this.closeRightPanel();
-    }
-  } */
-
-    // Close panel on ESC key press
-    @HostListener('document:keydown.escape', ['$event'])
-    onKeydownHandler() {
-      if(this.rightPanelOpen) this.closeRightPanel();
     }
 }
 

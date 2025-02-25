@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { SearchInputComponent } from '../search-input/search-input.component';
-import { Navbar2Component } from '../navbar2/navbar2.component';
-import { MenuBar2Component } from '../menu-bar2/menu-bar2.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { MenuBarComponent } from '../menu-bar/menu-bar.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [Navbar2Component, MenuBar2Component, SearchInputComponent],
+  imports: [NavbarComponent, MenuBarComponent, SearchInputComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
